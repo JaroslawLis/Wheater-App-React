@@ -14,33 +14,29 @@ class MainTable extends Component {
 
   render() {
     const data = this.props.data.map((city, i) => (
-      <Row>
-        <Col>{i + 1}</Col>
+      <Row key={city.cityID}>
+        <Col> {i + 1} </Col>{" "}
         <Col>
-          <Link to={`/showcity/${city.cityID}`}>{city.cityName}</Link>
+          <Link to={`/showcity/${city.cityID}`}> {city.cityName} </Link>{" "}
         </Col>
-
-        <Col>{city.averageTemp}</Col>
-
+        <Col> {city.averageTemp} &deg;C </Col>
         <Col>
           <Button
             variant="outline-danger"
             onClick={() => this.props.handleRemoveButton(i)}
           >
-            Usuń
-          </Button>
-        </Col>
+            Usuń{" "}
+          </Button>{" "}
+        </Col>{" "}
       </Row>
     ));
     return (
       <Container>
         <Row>
-          <Col>#</Col>
-          <Col>Miasto</Col>
-          <Col>Średnia prognozowana temperatura</Col>
-          <Col />
-        </Row>
-        {data}
+          <Col> # </Col> <Col> Miasto </Col>{" "}
+          <Col> Średnia prognozowana temperatura </Col> <Col />
+        </Row>{" "}
+        {data}{" "}
       </Container>
     );
   }

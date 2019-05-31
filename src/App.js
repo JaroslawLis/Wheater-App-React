@@ -18,10 +18,13 @@ import ShowCity from "./components/showCity";
 
 const Apikey = `36d3d56a52da5b9081da981e4b9a0dc3`;
 
+const citiesList = JSON.parse(localStorage.getItem("savedCities")) || [];
+console.log(citiesList);
 class App extends Component {
   state = {
     value: "",
-    cities: []
+    cities: [],
+    units: "metric"
     //citiesList: JSON.parse(localStorage.getItem("savedCities")) || []
   };
 
@@ -64,7 +67,7 @@ class App extends Component {
       })
       .then(respone => respone.json())
       .then(data => {
-        console.log(data);
+        //console.log(data);
         const city = {
           cityID: data.city.id,
           cityName: data.city.name,
@@ -72,8 +75,10 @@ class App extends Component {
           cityLon: data.city.coord.lon,
           averageTemp: this.averageTemp(data.list)
         };
-
-        console.log(city);
+        citiesList.push(data.city.id);
+        //console.log(city);
+        //console.log(citiesList);
+        localStorage.setItem("savedCities", JSON.stringify(citiesList));
         this.writeCity(city);
       })
       .catch(err => {
@@ -81,13 +86,59 @@ class App extends Component {
       });
   };
 
-  handleRemoveButton = () => {};
+  handleRemoveButton = index => {
+    let removedCityID = citiesList[index];
+    citiesList.splice(index, 1);
 
+    localStorage.setItem("savedCities", JSON.stringify(citiesList));
+    let cities = [...this.state.cities];
+
+    let removedCityIndex = cities.findIndex(
+      city => city.cityID === removedCityID
+    );
+    cities.splice(removedCityIndex, 1);
+    this.setState({ cities });
+  };
+  getWheater = () => {
+    let cities = [];
+    Promise.all(
+      citiesList.map((city, index) =>
+        fetch(
+          `https://api.openweathermap.org/data/2.5/forecast?id=${city}&units=${
+            this.state.units
+          }&appid=${Apikey}`
+        )
+          .then(res => res.json())
+          .then(data => {
+            const city = {
+              cityID: data.city.id,
+              cityName: data.city.name,
+              cityLat: data.city.coord.lat,
+              cityLon: data.city.coord.lon,
+              averageTemp: this.averageTemp(data.list)
+            };
+            cities.push(city);
+
+            if (!city) {
+              return "error";
+            }
+          })
+      )
+    )
+      .then(data => this.setState({ cities }))
+      .catch(err => {
+        throw err;
+      });
+  };
+
+  componentDidMount() {
+    this.getWheater();
+  }
   render() {
     return (
       <Container>
         <Router>
-          <Settings click={this.handleSettingsButton} />
+          <Settings click={this.handleSettingsButton} />{" "}
           <Switch>
             <Route
               path="/"
@@ -98,15 +149,15 @@ class App extends Component {
                     value={this.state.value}
                     change={this.handleInputChange}
                     submit={this.handleCitySubmit}
-                  />
+                  />{" "}
                   <MainTable
                     data={this.state.cities}
                     handleRemoveButton={this.handleRemoveButton}
-                  />
+                  />{" "}
                 </>
               )}
-            />
-            <Route path="/settings" exact render={() => <SettingsPage />} />
+            />{" "}
+            <Route path="/settings" exact render={() => <SettingsPage />} />{" "}
             <Route
               path="/showcity/:id"
               exact
@@ -117,7 +168,7 @@ class App extends Component {
                   )}
                 />
               )}
-            />
+            />{" "}
             <Route
               path="/"
               render={() => (
@@ -126,16 +177,16 @@ class App extends Component {
                     value={this.state.value}
                     change={this.handleInputChange}
                     submit={this.handleCitySubmit}
-                  />
+                  />{" "}
                   <MainTable
                     data={this.state.cities}
                     handleRemoveButton={this.handleRemoveButton}
-                  />
+                  />{" "}
                 </>
               )}
-            />
-          </Switch>
-        </Router>
+            />{" "}
+          </Switch>{" "}
+        </Router>{" "}
       </Container>
     );
   }
