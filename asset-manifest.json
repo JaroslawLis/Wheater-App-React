@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Wheater-App-React/static/css/main.2cce8147.chunk.css",
+    "main.js": "/Wheater-App-React/static/js/main.92655f90.chunk.js",
+    "main.js.map": "/Wheater-App-React/static/js/main.92655f90.chunk.js.map",
+    "runtime~main.js": "/Wheater-App-React/static/js/runtime~main.0d32423f.js",
+    "runtime~main.js.map": "/Wheater-App-React/static/js/runtime~main.0d32423f.js.map",
+    "static/js/2.0f9a3c6c.chunk.js": "/Wheater-App-React/static/js/2.0f9a3c6c.chunk.js",
+    "static/js/2.0f9a3c6c.chunk.js.map": "/Wheater-App-React/static/js/2.0f9a3c6c.chunk.js.map",
+    "index.html": "/Wheater-App-React/index.html",
+    "precache-manifest.9dc1b5d5019894d7a47c521d6c231445.js": "/Wheater-App-React/precache-manifest.9dc1b5d5019894d7a47c521d6c231445.js",
+    "service-worker.js": "/Wheater-App-React/service-worker.js",
+    "static/css/main.2cce8147.chunk.css.map": "/Wheater-App-React/static/css/main.2cce8147.chunk.css.map"
+  }
+}
