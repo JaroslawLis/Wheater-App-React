@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Wheater-App-React/precache-manifest.9dc1b5d5019894d7a47c521d6c231445.js"
+  "/Wheater-App-React/precache-manifest.4098ff3cf34b808bb1f95dab6e3dd543.js"
 );
 
 self.addEventListener('message', (event) => {
