@@ -118,6 +118,22 @@ class App extends Component {
                 />
               )}
             />
+            <Route
+              path="/"
+              render={() => (
+                <>
+                  <FormAddCity
+                    value={this.state.value}
+                    change={this.handleInputChange}
+                    submit={this.handleCitySubmit}
+                  />
+                  <MainTable
+                    data={this.state.cities}
+                    handleRemoveButton={this.handleRemoveButton}
+                  />
+                </>
+              )}
+            />
           </Switch>
         </Router>
       </Container>
