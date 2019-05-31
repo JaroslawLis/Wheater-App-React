@@ -52,7 +52,7 @@ class App extends Component {
 
   handleCitySubmit = e => {
     e.preventDefault();
-    const API = `http://api.openweathermap.org/data/2.5/forecast?q=${
+    const API = `https://api.openweathermap.org/data/2.5/forecast?q=${
       this.state.value
     }&units=${this.state.units}&appid=${Apikey}`;
     fetch(API)
