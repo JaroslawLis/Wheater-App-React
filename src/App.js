@@ -3,12 +3,9 @@ import React, { Component } from "react";
 //import logo from "./logo.svg";
 import "./App.css";
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+//Redirect,
 import { Container } from "react-bootstrap";
 import FormAddCity from "./components/formAddCity";
 import Settings from "./components/settings";
@@ -19,19 +16,17 @@ import ShowCity from "./components/showCity";
 const Apikey = `36d3d56a52da5b9081da981e4b9a0dc3`;
 
 const citiesList = JSON.parse(localStorage.getItem("savedCities")) || [];
-console.log(citiesList);
+
 class App extends Component {
   state = {
     value: "",
     cities: [],
     units: "metric"
-    //citiesList: JSON.parse(localStorage.getItem("savedCities")) || []
   };
 
   handleInputChange = e => {
     this.setState({
-      value: e.target.value,
-      units: "metric"
+      value: e.target.value
     });
   };
 
@@ -67,7 +62,12 @@ class App extends Component {
       })
       .then(respone => respone.json())
       .then(data => {
-        //console.log(data);
+        let x = citiesList.findIndex(city => city === data.city.id);
+        if (x >= 0) {
+          console.log("miasto istnieje");
+          return;
+        }
+
         const city = {
           cityID: data.city.id,
           cityName: data.city.name,
@@ -76,8 +76,7 @@ class App extends Component {
           averageTemp: this.averageTemp(data.list)
         };
         citiesList.push(data.city.id);
-        //console.log(city);
-        //console.log(citiesList);
+
         localStorage.setItem("savedCities", JSON.stringify(citiesList));
         this.writeCity(city);
       })
@@ -97,16 +96,16 @@ class App extends Component {
       city => city.cityID === removedCityID
     );
     cities.splice(removedCityIndex, 1);
-    this.setState({ cities });
+    this.setState({
+      cities
+    });
   };
-  getWheater = () => {
+  getWheater = units => {
     let cities = [];
     Promise.all(
       citiesList.map((city, index) =>
         fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?id=${city}&units=${
-            this.state.units
-          }&appid=${Apikey}`
+          `https://api.openweathermap.org/data/2.5/forecast?id=${city}&units=${units}&appid=${Apikey}`
         )
           .then(res => res.json())
           .then(data => {
@@ -125,14 +124,31 @@ class App extends Component {
           })
       )
     )
-      .then(data => this.setState({ cities }))
+      .then(data =>
+        this.setState({
+          cities
+        })
+      )
       .catch(err => {
         throw err;
       });
   };
 
+  handleFormSettings = e => {
+    if (e.target.value === "imperial") {
+      this.setState({
+        units: "imperial"
+      });
+      this.getWheater("imperial");
+    } else if (e.target.value === "metric") {
+      this.setState({
+        units: "metric"
+      });
+      this.getWheater("metric");
+    }
+  };
   componentDidMount() {
-    this.getWheater();
+    this.getWheater(this.state.units);
   }
   render() {
     return (
@@ -152,12 +168,22 @@ class App extends Component {
                   />{" "}
                   <MainTable
                     data={this.state.cities}
+                    units={this.state.units}
                     handleRemoveButton={this.handleRemoveButton}
                   />{" "}
                 </>
               )}
             />{" "}
-            <Route path="/settings" exact render={() => <SettingsPage />} />{" "}
+            <Route
+              path="/settings"
+              exact
+              render={props => (
+                <SettingsPage
+                  units={this.state.units}
+                  handleFormSettings={this.handleFormSettings}
+                />
+              )}
+            />{" "}
             <Route
               path="/showcity/:id"
               exact

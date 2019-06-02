@@ -1,28 +1,30 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Button, Col, Row, Container } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 //import "./mainTable.css";
 
 class MainTable extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      text: props.text
-    };
+    this.state = {};
   }
 
   render() {
     const data = this.props.data.map((city, i) => (
-      <Row key={city.cityID}>
-        <Col> {i + 1} </Col>{" "}
-        <Col>
+      <Row className="displayCity" key={city.cityID}>
+        <Col xs={1}> {i + 1} </Col>{" "}
+        <Col xs={6}>
           <Link to={`/showcity/${city.cityID}`}> {city.cityName} </Link>{" "}
-        </Col>
-        <Col> {city.averageTemp} &deg;C </Col>
+        </Col>{" "}
+        <Col>
+          {" "}
+          {city.averageTemp} &deg; {this.props.units === "metric" ? "C" : "F"}{" "}
+        </Col>{" "}
         <Col>
           <Button
             variant="outline-danger"
+            block
             onClick={() => this.props.handleRemoveButton(i)}
           >
             Usuń{" "}
@@ -31,13 +33,13 @@ class MainTable extends Component {
       </Row>
     ));
     return (
-      <Container>
-        <Row>
-          <Col> # </Col> <Col> Miasto </Col>{" "}
+      <>
+        <Row className="title">
+          <Col xs={1}> # </Col> <Col xs={6}> Miasto </Col>{" "}
           <Col> Średnia prognozowana temperatura </Col> <Col />
         </Row>{" "}
         {data}{" "}
-      </Container>
+      </>
     );
   }
 }

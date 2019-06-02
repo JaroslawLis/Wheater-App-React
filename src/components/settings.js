@@ -1,13 +1,17 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Button, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Settings = () => {
   return (
-    <Link to="/settings">
-      {" "}
-      <Button variant="outline-primary">Ustawienia</Button>
-    </Link>
+    <Row className="settings">
+      <Col md={{ span: 3, offset: 10 }}>
+        <Link to="/settings">
+          {" "}
+          <Button variant="outline-primary"> Ustawienia </Button>{" "}
+        </Link>{" "}
+      </Col>
+    </Row>
   );
 };
 

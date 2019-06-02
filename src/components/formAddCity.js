@@ -5,7 +5,7 @@ const FormAddCity = props => {
   return (
     <Form onSubmit={props.submit}>
       <Row>
-        <Col>
+        <Col xs={9}>
           <Form.Control
             type="text"
             placeholder="Nazwa miasta"
@@ -14,7 +14,7 @@ const FormAddCity = props => {
           />
         </Col>
         <Col>
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" block>
             Dodaj
           </Button>
         </Col>
