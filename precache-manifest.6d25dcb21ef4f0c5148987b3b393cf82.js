@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d1ff047202e8279efbc6d5dcc9d1d86d",
+    "revision": "d7fb8686e6ef2ced4c1cf14489828013",
     "url": "/Wheater-App-React/index.html"
   },
   {
-    "revision": "863a1f50bc239bba0051",
-    "url": "/Wheater-App-React/static/css/main.45878b27.chunk.css"
+    "revision": "a132e5347f111d50e107",
+    "url": "/Wheater-App-React/static/css/main.6979b806.chunk.css"
   },
   {
     "revision": "f5bd541c17958f32ad5c",
     "url": "/Wheater-App-React/static/js/2.c54684a1.chunk.js"
   },
   {
-    "revision": "863a1f50bc239bba0051",
-    "url": "/Wheater-App-React/static/js/main.447567ba.chunk.js"
+    "revision": "a132e5347f111d50e107",
+    "url": "/Wheater-App-React/static/js/main.c38da80b.chunk.js"
   },
   {
     "revision": "0d9d3708a7152930ebf1",
