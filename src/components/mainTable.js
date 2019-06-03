@@ -21,13 +21,13 @@ class MainTable extends Component {
           {" "}
           {city.averageTemp} &deg; {this.props.units === "metric" ? "C" : "F"}{" "}
         </Col>{" "}
-        <Col>
+        <Col className="button">
           <Button
             variant="outline-danger"
             block
             onClick={() => this.props.handleRemoveButton(i)}
           >
-            Usuń{" "}
+            <i className="fa fa-minus-circle" /> Usuń{" "}
           </Button>{" "}
         </Col>{" "}
       </Row>

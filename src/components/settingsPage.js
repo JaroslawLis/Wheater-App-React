@@ -2,7 +2,6 @@ import React from "react";
 import { Button, Form, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 const SettingsPage = props => {
-  console.log(props);
   return (
     <>
       <fieldset>

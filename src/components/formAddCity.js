@@ -11,14 +11,15 @@ const FormAddCity = props => {
             placeholder="Nazwa miasta"
             value={props.value}
             onChange={props.change}
-          />
-        </Col>
+          />{" "}
+        </Col>{" "}
         <Col>
           <Button variant="primary" type="submit" block>
-            Dodaj
-          </Button>
-        </Col>
-      </Row>
+            <i className="fa fa-search-plus" /> {"     "}
+            Dodaj{" "}
+          </Button>{" "}
+        </Col>{" "}
+      </Row>{" "}
     </Form>
   );
 };

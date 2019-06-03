@@ -152,7 +152,7 @@ class App extends Component {
   }
   render() {
     return (
-      <Container>
+      <Container className="App">
         <Router>
           <Settings click={this.handleSettingsButton} />{" "}
           <Switch>

@@ -1,12 +1,8 @@
-.App {
-  text-align: center;
-}
-
 .settings {
 
   background-color: #ebebeb;
   padding: 10px 0;
-
+  text-align: center;
 }
 
 .settings a {
@@ -30,4 +26,17 @@ form {
   margin-bottom: 10px;
   padding-top: 10px;
   border-top: 1px dotted black;
+}
+
+i {
+  color: white;
+}
+
+.displayCity i {
+  color: red;
+}
+
+.button:hover,
+  {
+  color: white;
 }
