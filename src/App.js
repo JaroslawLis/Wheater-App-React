@@ -152,7 +152,7 @@ class App extends Component {
   }
   render() {
     return (
-      <Container className="App">
+      <div className="App container">
         <Router>
           <Settings click={this.handleSettingsButton} />{" "}
           <Switch>
@@ -213,7 +213,7 @@ class App extends Component {
             />{" "}
           </Switch>{" "}
         </Router>{" "}
-      </Container>
+      </div>
     );
   }
 }
