@@ -19,7 +19,7 @@ class MainTable extends Component {
         </Col>{" "}
         <Col>
           {" "}
-          {city.averageTemp} &deg; {this.props.units === "metric" ? "C" : "F"}{" "}
+          {city.averageTemp} &deg; {this.props.units === "imperial" ? "F" : "C"}{" "}
         </Col>{" "}
         <Col className="button">
           <Button

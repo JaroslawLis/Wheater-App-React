@@ -3,6 +3,18 @@
   background-color: #ebebeb;
   padding: 10px 0;
   text-align: center;
+  margin-bottom: 40px;
+}
+
+.settings i {
+  color: #007bff;
+}
+
+
+
+.btn-outline-primary:hover>.settings i {
+  color: white;
+  background-color: #fff;
 }
 
 .settings a {
@@ -36,7 +48,27 @@ i {
   color: red;
 }
 
-.button:hover,
-  {
-  color: white;
+fieldset {
+  border-bottom: 1px dotted #000;
+  border-top: 1px dotted #000;
+  margin: 20px 0;
+  padding-top: 20px;
+}
+
+.return_link {
+  margin-top: 20px;
+  float: right;
+}
+
+.show_city h1 {
+  border-bottom: 1px dotted #000;
+}
+
+.show_city.container {
+  border-bottom: 1px dotted #000;
+
+}
+
+.show_city .row {
+  padding: 20px 0;
 }

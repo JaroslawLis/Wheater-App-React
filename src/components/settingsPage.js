@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const SettingsPage = props => {
   return (
     <>
+      <h1> Ustawienia </h1>{" "}
       <fieldset>
         <Form.Group as={Row}>
           <Form.Label as="legend" column sm={2}>
@@ -18,7 +19,7 @@ const SettingsPage = props => {
               value="metric"
               checked={props.units === "metric" ? true : false}
               onChange={props.handleFormSettings}
-            />
+            />{" "}
             <Form.Check
               type="radio"
               label="&deg;F"
@@ -27,11 +28,11 @@ const SettingsPage = props => {
               value="imperial"
               checked={props.units === "imperial" ? true : false}
               onChange={props.handleFormSettings}
-            />
+            />{" "}
           </Col>{" "}
         </Form.Group>{" "}
       </fieldset>{" "}
-      <Link to="/">
+      <Link to="/" className="return_link">
         <Button variant="outline-primary"> Powrót </Button>{" "}
       </Link>{" "}
     </>
