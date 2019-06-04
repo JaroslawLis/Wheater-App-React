@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Wheater-App-React/static/css/main.6979b806.chunk.css",
-    "main.js": "/Wheater-App-React/static/js/main.c38da80b.chunk.js",
-    "main.js.map": "/Wheater-App-React/static/js/main.c38da80b.chunk.js.map",
+    "main.css": "/Wheater-App-React/static/css/main.716161dc.chunk.css",
+    "main.js": "/Wheater-App-React/static/js/main.feb38626.chunk.js",
+    "main.js.map": "/Wheater-App-React/static/js/main.feb38626.chunk.js.map",
     "runtime~main.js": "/Wheater-App-React/static/js/runtime~main.0d32423f.js",
     "runtime~main.js.map": "/Wheater-App-React/static/js/runtime~main.0d32423f.js.map",
     "static/js/2.c54684a1.chunk.js": "/Wheater-App-React/static/js/2.c54684a1.chunk.js",
     "static/js/2.c54684a1.chunk.js.map": "/Wheater-App-React/static/js/2.c54684a1.chunk.js.map",
     "index.html": "/Wheater-App-React/index.html",
-    "precache-manifest.6d25dcb21ef4f0c5148987b3b393cf82.js": "/Wheater-App-React/precache-manifest.6d25dcb21ef4f0c5148987b3b393cf82.js",
+    "precache-manifest.77b069c03b7ef5171d1864b583d6b309.js": "/Wheater-App-React/precache-manifest.77b069c03b7ef5171d1864b583d6b309.js",
     "service-worker.js": "/Wheater-App-React/service-worker.js",
-    "static/css/main.6979b806.chunk.css.map": "/Wheater-App-React/static/css/main.6979b806.chunk.css.map"
+    "static/css/main.716161dc.chunk.css.map": "/Wheater-App-React/static/css/main.716161dc.chunk.css.map"
   }
 }
